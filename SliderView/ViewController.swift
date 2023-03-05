@@ -33,17 +33,17 @@ class ViewController: UIViewController {
     // MARK: - IBAction
     @IBAction func redSpectorChanges() {
         redSliderValue.text = "\(round((redSlider.value) * 100) / 100)"
-        colorisedView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        toColorTheView()
     }
     
     @IBAction func greenSpectorChanges() {
         greenSliderValue.text = "\(round((greenSlider.value) * 100) / 100)"
-        colorisedView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        toColorTheView()
     }
     
     @IBAction func blueSpectorChanges() {
         blueSliderValue.text = "\(round((blueSlider.value) * 100) / 100)"
-        colorisedView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        toColorTheView()
     }
     
     
@@ -54,5 +54,9 @@ class ViewController: UIViewController {
         blueSlider.minimumTrackTintColor = UIColor.blue
     }
     
+    private func toColorTheView() {
+        colorisedView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    }
+
 }
 
