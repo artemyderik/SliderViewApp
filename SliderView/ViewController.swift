@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         colorisedView.backgroundColor = UIColor.red
+        colorisedView.layer.cornerRadius = colorisedView.frame.width / 9.5
         slidersSetup()
     }
     
