@@ -19,9 +19,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        slidersSetup()
     }
 
-
+    // MARK: - Private methods
+    private func slidersSetup() {
+        redSlider.minimumTrackTintColor = UIColor.red
+        greenSlider.minimumTrackTintColor = UIColor.green
+        blueSlider.minimumTrackTintColor = UIColor.blue
+    }
 }
 
