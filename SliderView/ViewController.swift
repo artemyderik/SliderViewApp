@@ -10,32 +10,35 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: - IBOutlet
-    @IBOutlet var colorisedVied: UIView!
+    @IBOutlet var colorisedView: UIView!
     
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
 
-    @IBOutlet var greenSliderValue: UIView!
     @IBOutlet var redSliderValue: UILabel!
+    @IBOutlet var greenSliderValue: UILabel!
     @IBOutlet var blueSliderValue: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorisedVied.backgroundColor = UIColor.red
+        colorisedView.backgroundColor = UIColor.red
         slidersSetup()
     }
     
     // MARK: - IBAction
     @IBAction func redSpectorChanges() {
-        colorisedVied.layer.opacity = redSlider.value
-        
+        redSliderValue.text = "\(round((redSlider.value) * 100) / 100)"
     }
     
     @IBAction func greenSpectorChanges() {
+        greenSliderValue.text = "\(round((greenSlider.value) * 100) / 100)"
+
     }
     
     @IBAction func blueSpectorChanges() {
+        blueSliderValue.text = "\(round((blueSlider.value) * 100) / 100)"
+
     }
     
     

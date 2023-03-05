@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-9V-Fgd">
-                                <rect key="frame" x="73" y="294" width="273" height="30"/>
+                                <rect key="frame" x="82" y="294" width="264" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="redSpectorChanges" destination="BYZ-38-t0r" eventType="valueChanged" id="wjX-hf-YrU"/>
@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xrq-af-okl">
-                                <rect key="frame" x="73" y="327" width="273" height="30"/>
+                                <rect key="frame" x="82" y="327" width="264" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="greenSpectorChanges" destination="BYZ-38-t0r" eventType="valueChanged" id="VaL-pH-DuS"/>
@@ -45,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ary-7l-TpA">
-                                <rect key="frame" x="73" y="359" width="273" height="30"/>
+                                <rect key="frame" x="82" y="359" width="264" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="blueSpectorChanges" destination="BYZ-38-t0r" eventType="valueChanged" id="p0C-aD-Jsm"/>
@@ -64,21 +64,21 @@
                                 <color key="backgroundColor" red="0.60146962410000004" green="0.75059768360000001" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTA-sj-ceO">
-                                <rect key="frame" x="35" y="298" width="32" height="21"/>
+                                <rect key="frame" x="35" y="298" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-L7-hUh">
-                                <rect key="frame" x="35" y="331" width="32" height="21"/>
+                                <rect key="frame" x="35" y="331" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tus-jz-sNC">
-                                <rect key="frame" x="35" y="363" width="32" height="21"/>
+                                <rect key="frame" x="35" y="363" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -90,11 +90,12 @@
                     </view>
                     <connections>
                         <outlet property="blueSlider" destination="Ary-7l-TpA" id="fVr-1o-5mA"/>
-                        <outlet property="blueSliderValue" destination="tus-jz-sNC" id="hLg-wS-nPX"/>
-                        <outlet property="colorisedVied" destination="aBa-yL-OkV" id="U7a-NH-cT9"/>
-                        <outlet property="greenSlider" destination="Xrq-af-okl" id="YBp-ge-Jko"/>
-                        <outlet property="greenSliderValue" destination="8bC-Xf-vdC" id="UpQ-UV-AWU"/>
+                        <outlet property="blueSliderValue" destination="tus-jz-sNC" id="Pvk-69-YLA"/>
+                        <outlet property="colorisedView" destination="aBa-yL-OkV" id="fC3-7f-qF1"/>
+                        <outlet property="greenSlider" destination="Xrq-af-okl" id="sVj-8p-G38"/>
+                        <outlet property="greenSliderValue" destination="eyN-L7-hUh" id="b6V-nb-Q6k"/>
                         <outlet property="redSlider" destination="2dv-9V-Fgd" id="JlE-KR-GWW"/>
+                        <outlet property="redSliderValue" destination="uTA-sj-ceO" id="s75-Dc-nis"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
