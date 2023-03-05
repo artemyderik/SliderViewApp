@@ -21,7 +21,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         slidersSetup()
     }
-
+    
+    // MARK: - IBAction
+    @IBAction func redSpectorChanges() {
+    }
+    
+    @IBAction func greenSpectorChanges() {
+    }
+    
+    @IBAction func blueSpectorChanges() {
+    }
+    
+    
     // MARK: - Private methods
     private func slidersSetup() {
         redSlider.minimumTrackTintColor = UIColor.red
