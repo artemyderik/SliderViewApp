@@ -10,20 +10,26 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: - IBOutlet
-    @IBOutlet var coloredLabel: UIView!
-
+    @IBOutlet var colorisedVied: UIView!
+    
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
 
+    @IBOutlet var greenSliderValue: UIView!
+    @IBOutlet var redSliderValue: UILabel!
+    @IBOutlet var blueSliderValue: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorisedVied.backgroundColor = UIColor.red
         slidersSetup()
     }
     
     // MARK: - IBAction
     @IBAction func redSpectorChanges() {
+        colorisedVied.layer.opacity = redSlider.value
+        
     }
     
     @IBAction func greenSpectorChanges() {
