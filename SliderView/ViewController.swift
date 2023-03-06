@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         colorisedView.layer.cornerRadius = colorisedView.frame.width / 15.5
         slidersSetup()
+        toColorTheView()
     }
     
 
