@@ -11,6 +11,7 @@ class SettingsViewController: UIViewController {
     
     var newValue = Value(red: 0, green: 0, blue: 0)
     var delegate: SettingsViewControllerDelegate!
+    
     // MARK: - IBOutlet
     @IBOutlet var colorisedView: UIView!
     @IBOutlet var redSlider: UISlider!
@@ -32,8 +33,6 @@ class SettingsViewController: UIViewController {
         setTextFields()
         toColorTheView()
     }
-    
-    
     
     // MARK: - IBAction
     @IBAction func redSpectorChanges() {
@@ -65,8 +64,6 @@ class SettingsViewController: UIViewController {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
-    
-    
     
     // MARK: - Private methods
     private func slidersSetup() {
