@@ -13,10 +13,8 @@ protocol SettingsViewControllerDelegate {
 
 class ColorisedViewController: UIViewController {
 
-    private var newValue = Value(red: 0, green: 0, blue: 0)
-    
-    @IBOutlet var colorisedView: UIView!
-    
+    private var newValue = Value(red: 1, green: 1, blue: 1)
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingsVC = segue.destination as? SettingsViewController else { return }
         settingsVC.newValue = newValue
@@ -30,7 +28,7 @@ extension ColorisedViewController: SettingsViewControllerDelegate {
         newValue.red = value.red
         newValue.green = value.green
         newValue.blue = value.blue
-        colorisedView.backgroundColor = UIColor(
+        view.backgroundColor = UIColor(
             red: value.red,
             green: value.green,
             blue: value.blue,
