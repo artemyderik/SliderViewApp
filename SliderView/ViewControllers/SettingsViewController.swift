@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    var newValue = Value(red: 0, green: 0, blue: 0)
+    var newValue = Value(red: 1, green: 1, blue: 1)
     var delegate: SettingsViewControllerDelegate!
     
     // MARK: - IBOutlet
@@ -36,20 +36,17 @@ class SettingsViewController: UIViewController {
     
     // MARK: - IBAction
     @IBAction func redSpectorChanges() {
-        putTexts(from: redSlider, to: redSliderValue, and: redSliderTextField)
-        newValue.red = CGFloat(redSlider.value)
+        redSliderSpectorChanged()
         toColorTheView()
     }
     
     @IBAction func greenSpectorChanges() {
-        putTexts(from: greenSlider, to: greenSliderValue, and: greenSliderTextField)
-        newValue.green = CGFloat(greenSlider.value)
+        greenSliderSpectorChanged()
         toColorTheView()
     }
     
     @IBAction func blueSpectorChanges() {
-        putTexts(from: blueSlider, to: blueSliderValue, and: blueSliderTextField)
-        newValue.blue = CGFloat(blueSlider.value)
+        blueSliderSpectorChanged()
         toColorTheView()
     }
     
@@ -73,9 +70,9 @@ class SettingsViewController: UIViewController {
     }
     
     private func toColorTheView() {
-        newValue.red = CGFloat(redSlider.value)
-        newValue.green = CGFloat(greenSlider.value)
-        newValue.blue = CGFloat(blueSlider.value)
+        redSlider.value = Float(newValue.red)
+        greenSlider.value = Float(newValue.green)
+        blueSlider.value = Float(newValue.blue)
         
         colorisedView.backgroundColor = UIColor(
             red: newValue.red,
@@ -95,13 +92,27 @@ class SettingsViewController: UIViewController {
     }
     
     private func setTextFields() {
-        redSliderTextField.delegate = self
-        greenSliderTextField.delegate = self
-        blueSliderTextField.delegate = self
-        
-        redSliderTextField.keyboardType = .decimalPad
-        greenSliderTextField.keyboardType = .decimalPad
-        blueSliderTextField.keyboardType = .decimalPad
+        [redSliderTextField,
+         greenSliderTextField,
+         blueSliderTextField].forEach { textField in
+            textField?.delegate = self
+            textField?.keyboardType = .decimalPad
+        }
+    }
+    
+    private func redSliderSpectorChanged() {
+        putTexts(from: redSlider, to: redSliderValue, and: redSliderTextField)
+        newValue.red = CGFloat(redSlider.value)
+    }
+    
+    private func greenSliderSpectorChanged() {
+        putTexts(from: greenSlider, to: greenSliderValue, and: greenSliderTextField)
+        newValue.green = CGFloat(greenSlider.value)
+    }
+    
+    private func blueSliderSpectorChanged() {
+        putTexts(from: blueSlider, to: blueSliderValue, and: blueSliderTextField)
+        newValue.blue = CGFloat(blueSlider.value)
     }
 }
 
@@ -121,6 +132,16 @@ extension SettingsViewController: UITextFieldDelegate {
         greenSliderTextField.text = String(newGreenValue)
         blueSliderTextField.text = String(newBlueValue)
         
-        toColorTheView()
+        colorisedView.backgroundColor = UIColor(red: CGFloat(newRedValue), green: CGFloat(newGreenValue), blue: CGFloat(newBlueValue), alpha: 1)
+        
+        newValue.red = CGFloat(newRedValue)
+        newValue.green = CGFloat(newGreenValue)
+        newValue.blue = CGFloat(newBlueValue)
+        
+        redSliderValue.text = String(format: "%.2f", redSlider.value)
+        greenSliderValue.text = String(format: "%.2f", greenSlider.value)
+        blueSliderValue.text = String(format: "%.2f", blueSlider.value)
+        
+        //toColorTheView()
     }
 }
