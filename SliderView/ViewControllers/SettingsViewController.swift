@@ -127,23 +127,23 @@ class SettingsViewController: UIViewController {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let keyboardToolbar = UIToolbar()
-        keyboardToolbar.sizeToFit() // установить размрер тулбара по ширине клавиатуры
-        textField.inputAccessoryView = keyboardToolbar // присваиваем для аксессуара текстового поля наш тулбар
+        keyboardToolbar.sizeToFit()
+        textField.inputAccessoryView = keyboardToolbar
         
         let doneButton = UIBarButtonItem(
             barButtonSystemItem: .done,
-            target: self, // указываем класс в котором находится метод
-            action: #selector(doneButtonOnToolBarPressed) // указываем название метода который должен вызываться при нажатии на кнопку
+            target: self,
+            action: #selector(doneButtonOnToolBarPressed)
         )
         
-        let flexBarButton = UIBarButtonItem( // раздвигаем кнопки этим элементом
+        let flexBarButton = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
             target: nil,
             action: nil
         )
         
         keyboardToolbar.items = [flexBarButton, doneButton]
-    } // размещаем элементы в нужной послежовательности
+    }
 }
 
 //MARK: UITextFieldDelegate
