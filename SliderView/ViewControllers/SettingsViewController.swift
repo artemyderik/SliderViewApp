@@ -29,8 +29,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         colorisedView.layer.cornerRadius = colorisedView.frame.width / 15.5
-        setTextFields()
         setAllTexts()
+        setTextFields()
         slidersSetup()
         toColorTheView()
     }
@@ -120,10 +120,38 @@ class SettingsViewController: UIViewController {
         putTexts(from: greenSlider, to: greenSliderValue, and: greenSliderTextField)
         putTexts(from: blueSlider, to: blueSliderValue, and: blueSliderTextField)
     }
+    
+    @objc private func doneButtonOnToolBarPressed() {
+        view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit() // установить размрер тулбара по ширине клавиатуры
+        textField.inputAccessoryView = keyboardToolbar // присваиваем для аксессуара текстового поля наш тулбар
+        
+        let doneButton = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self, // указываем класс в котором находится метод
+            action: #selector(doneButtonOnToolBarPressed) // указываем название метода который должен вызываться при нажатии на кнопку
+        )
+        
+        let flexBarButton = UIBarButtonItem( // раздвигаем кнопки этим элементом
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil
+        )
+        
+        keyboardToolbar.items = [flexBarButton, doneButton]
+    } // размещаем элементы в нужной послежовательности
 }
 
 //MARK: UITextFieldDelegate
 extension SettingsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         let newRedValue = Float(redSliderTextField.text ?? "") ?? 1
@@ -147,7 +175,5 @@ extension SettingsViewController: UITextFieldDelegate {
         redSliderValue.text = String(format: "%.2f", redSlider.value)
         greenSliderValue.text = String(format: "%.2f", greenSlider.value)
         blueSliderValue.text = String(format: "%.2f", blueSlider.value)
-        
-        //toColorTheView()
     }
 }
