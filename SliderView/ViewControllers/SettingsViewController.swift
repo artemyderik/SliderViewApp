@@ -29,8 +29,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         colorisedView.layer.cornerRadius = colorisedView.frame.width / 15.5
-        slidersSetup()
         setTextFields()
+        setAllTexts()
+        slidersSetup()
         toColorTheView()
     }
     
@@ -51,7 +52,6 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed() {
-        view.endEditing(true)
         delegate.setNewValues(for: newValue)
         dismiss(animated: true)
     }
@@ -114,6 +114,12 @@ class SettingsViewController: UIViewController {
         putTexts(from: blueSlider, to: blueSliderValue, and: blueSliderTextField)
         newValue.blue = CGFloat(blueSlider.value)
     }
+    
+    private func setAllTexts() {
+        putTexts(from: redSlider, to: redSliderValue, and: redSliderTextField)
+        putTexts(from: greenSlider, to: greenSliderValue, and: greenSliderTextField)
+        putTexts(from: blueSlider, to: blueSliderValue, and: blueSliderTextField)
+    }
 }
 
 //MARK: UITextFieldDelegate
@@ -124,9 +130,9 @@ extension SettingsViewController: UITextFieldDelegate {
         let newGreenValue = Float(greenSliderTextField.text ?? "") ?? 1
         let newBlueValue = Float(blueSliderTextField.text ?? "") ?? 1
         
-        redSlider.value = newRedValue
-        greenSlider.value = newGreenValue
-        blueSlider.value = newBlueValue
+        redSlider.setValue(newRedValue, animated: true)
+        greenSlider.setValue(newGreenValue, animated: true)
+        blueSlider.setValue(newBlueValue, animated: true)
         
         redSliderTextField.text = String(newRedValue)
         greenSliderTextField.text = String(newGreenValue)
