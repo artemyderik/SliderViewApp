@@ -12,9 +12,9 @@ protocol SettingsViewControllerDelegate {
 }
 
 class ColorisedViewController: UIViewController {
-
+    
     private var newValue = Value(red: 1, green: 1, blue: 1)
-        
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingsVC = segue.destination as? SettingsViewController else { return }
         settingsVC.newValue = newValue
